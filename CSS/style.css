@@ -1,0 +1,572 @@
+/* ------------ UNIVERSAL CSS CHANGES GO HERE ------------ */
+/* ------------ THIS MEANS EVERY PAGE SHOULD HAVE ALMOST THE SAME ELEMENTS ------------ */
+
+/* THIS ADDS CUSTOM FONT */
+/* IF FONT DOESN'T EXIST IN LOCAL COMPUTER, DEFAULT FONT IS WHAT COMPUTER IS SET E.G., TIMES NEW ROMANS */
+@font-face {
+    font-family: Tuber;
+    src: url(Tuber.ttf);
+}
+
+
+
+.buttonNav {
+    background-color: rgb(196, 195, 195);
+    border-radius: 10px;
+    border: 2px outset rgb(175, 172, 172);
+    margin: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    text-decoration:none;
+    font-weight: bold;
+    font-family: Tuber;
+    padding: 10px;
+
+
+    transition-duration: .30s;
+    transition-timing-function: linear;
+}
+
+.buttonNav:hover {
+    background-color: rgb(169, 218, 165);
+    border: 2px outset rgb(169, 196, 156);
+}
+
+
+
+
+body {
+    /*background-color: rgb(214, 201, 183);*/
+    /* PLS CHANGE TO BACKGROUND IMAGE IT WILL LOOK COOLER */
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+/* BODY CLASSES MAINLY FOR DIFFERENT BACKGROUNDS HERE */
+
+body.default {
+    background-image: url(/Images/defaultBackground.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.account {
+    background-image: url(/Images/AccountBackground.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* BODY CLASSES MAINLY FOR DIFFERENT BACKGROUNDS HERE */
+
+header {
+    display: flex;
+    margin-bottom: 35px;
+    background-color: rgba(0, 0, 0, 0.370);
+}
+
+header > h1 {
+    font-family: Tuber;
+    padding-right: 50px;
+    padding-left: 50px;
+    color: rgb(160, 160, 160);
+    text-shadow: 0px 3px 0px black;
+}
+
+.try h1 > span:nth-of-type(even){
+    color:rgb(255, 255, 255);
+}
+.try h1 > span:nth-of-type(odd){
+    color:rgb(228, 181, 127);
+}
+
+
+canvas {
+    border: 1px solid black;
+    background-color: rgb(169, 218, 165);
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
+
+footer {
+    padding: 15px;
+    font-family: Tuber;
+    text-align: center;
+}
+
+footer > a {
+    padding: 5px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SEPARATES FOOTER COLOUR FROM ACCOUNT PAGE BECAUSE OF DIFFERENT BG */
+footer.default {
+    background-color: rgb(228, 181, 127);
+}
+
+
+/* ------------ END OF UNIVERSAL CSS CHANGES ------------ */
+
+
+
+
+/* ------------ THIS IS FOR GAME PAGE ------------ */
+
+#GameWindow {
+    padding: 15px;
+}
+
+#InfoBox {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 30%;
+}
+
+.OuterInfoBoxText {
+    background-color: gray;
+    padding: 5px;
+    border-radius: 3px;
+    border: 2px outset gray;
+}
+
+.OuterInfoBoxText > h1, p {
+    margin: 10px;
+    font-family: Tuber;
+}
+
+.InfoBoxText {
+    background-color: white;
+    padding: 3px;
+    border-radius: 3px;
+    border: 2px outset rgb(168, 168, 168);
+}
+
+
+
+/* ------------ END OF GAME PAGE ------------ */
+
+
+
+
+
+/* ------------ THIS IS FOR RANKING PAGE ------------ */
+
+.Pagination {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+#RankingBox {
+    background-color: rgb(105, 153, 101);
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 60%;
+
+    border: 2px solid rgb(58, 70, 57);
+    border-radius: 5px;
+}
+
+#RankingBox > h1 {
+    color: white;
+    font-size: 48px;
+    font-family: Tuber;
+    text-shadow: 2px 2px 5px black;
+    margin-top: 25px;
+}
+
+
+.RankingPageTable {
+    background-color: rgb(58, 70, 57);
+    width: 100%;
+    color: white;
+    font-family: Helvetica;
+}
+
+
+.RankingPageTableRow {
+    border-radius: 4px;
+    background-color: rgb(121, 146, 119);
+    font-family: Helvetica;
+}
+
+.RankingPageTableRow > td {
+    padding: 15px;
+    border: 0px solid black;
+    border-radius: 3px;
+    text-shadow: 1px 1px black;
+}
+
+.RankingPageTableRow > td > a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+
+
+/* ------------ END OF RANKING PAGE ------------ */
+
+
+
+
+
+/* ------------ THIS IS FOR ACCOUNT PAGE ------------ */
+
+
+
+/* TO PROPERLY ALIGN ALL BOXES */
+.AccountContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
+/* TO STACK THE LOGIN BOX AND FORGOT PASSWORD BOX */
+.RecentAccountContainer {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.CreateAccountBox {
+    display: block;
+
+    background-color: rgba(195, 145, 121, 0.404);
+    text-align: center;
+    margin: auto;
+
+    padding: 5px;
+    width: 30%;
+
+    border: 3px solid rgb(97, 74, 75);
+    border-radius: 10px;
+
+    font-family: Tuber;
+}
+
+.CreateAccountBox > h1 {
+    padding-left: 5px; 
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*
+.CreateAccountBox > .InnerAccBox > form > input[type=text] {
+    width: 50%;
+}
+*/  
+
+.RecentAccountBox {
+    display: block;
+
+    background-color: rgba(195, 145, 121, 0.404);
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 5px;
+    width: 100%;
+
+    border: 3px solid rgb(97, 74, 75);
+    border-radius: 5px;
+
+    font-family: Tuber;
+}
+
+.RecentAccountBox > h1 {
+    padding-left: 5px;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.InnerAccBox {
+    background-color: rgba(212, 161, 138, 0.404);
+    margin: auto;
+    padding: 5px;
+    border: 2px solid rgb(138, 104, 88);
+    border-radius: 3px;
+}
+
+
+
+/* THIS IS FOR NEW PASSWORD PAGE */
+.NewPasswordBox {
+    display: block;
+    text-align: center;
+
+    background-color: rgb(206, 206, 206);
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 15%;
+    padding: 5px;
+    width: 30%;
+
+    border: 3px solid rgb(164, 164, 164);
+    border-radius: 5px;
+
+    font-family: Tuber;
+}
+
+
+.NewPasswordBox > h1 {
+    padding-left: 5px;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.InnerNewPasswordBox {
+    background-color: rgb(232, 232, 232);
+    margin: auto;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+
+}
+
+
+/* CREATES HIDDEN TEXT BOX THAT WHEN MOUSE IS HOVERED OVER, THE TEXT BOX APPEARS */
+
+/*
+IF YOU WANNA ADD A HOVER TIP THING, INLCUDE THIS IN HTML:
+
+    <div class="hoverForTip">
+        <img src="\Images\info-icon.png" width="..." height="...">
+        <span class="hoverForTipText">  </span>
+    </div>
+    
+*/
+.hoverForTip {
+    position: relative;
+    display: inline-block;
+}
+
+.hoverForTip .hoverForTipText {
+    visibility: hidden;
+    width: 200px;
+    left: 150%;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    border:3px solid black;
+    background-color:white;
+    opacity: 0;
+    transition: opacity 1s;
+    font-size: 25px;
+}
+
+.hoverForTip:hover .hoverForTipText {
+    visibility: visible;
+    opacity: 1;
+}
+/* ------------------ END OF HIDDEN TEXT BOX IN IMAGE THING ------------------ */
+
+
+
+/* END OF NEW PASSWORD PAGE */
+
+
+
+label[for=username], label[for=email], label[for=password] {
+    font-size: 20px;
+}
+
+
+input[type=text], input[type=email], input[type=password] {
+    padding: 10px;
+    background-color: rgba(85, 85, 85, 0.315);
+    border: 1px solid white;
+    border-radius: 3px;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    width: 50%;
+}
+
+
+input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
+    border: 1px solid rgb(169, 218, 165);
+    border-radius: 3px;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border: 1px solid rgb(255, 248, 185);
+    border-radius: 3px;
+    background-color: rgba(85, 85, 85, 0.603);
+}
+
+input[type=submit] {
+    background-color: rgb(211, 211, 211);
+    border: 2px outset rgb(175, 172, 172);
+    border-radius: 5px;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    font-family: Tuber;
+    font-size: 20px;
+}
+
+
+input[type=submit]:hover {
+    background-color: rgb(206, 255, 202);
+    border: 2px outset rgb(169, 196, 156);
+}
+
+
+textarea {
+    width: 99.5%;
+    height: 150px;
+    resize: none;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
+
+
+/* THIS IS FOR ACCOUNT PART 2 */
+#AccountInfoBox {
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+    justify-content: left;
+    align-items: left;
+    padding: 20px;
+    width: 40%;
+    font-family: Tuber;
+}
+
+.OuterAccBox {
+    display: block;
+
+    background-color: rgb(228, 181, 127);
+    margin: auto;
+    padding: 5px;
+
+    border: 3px solid rgb(228, 198, 166);
+    border-radius: 5px;
+
+    font-family: Tuber;
+}
+
+.OuterAccBox > h1 {
+    padding-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 350%; 
+    color: white; 
+    text-shadow: 2px 2px 1px black;
+}
+
+.InnerAccBox > h2 {
+    padding-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 200%; 
+    color: white; 
+    text-shadow: 2px 2px 1px black;
+}
+
+.InnerAccBox > h3 {
+    padding-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* END OF ACCOUNT PART 2*/
+
+/* ------------ END OF ACCOUNT PAGE ------------ */
+
+
+
+
+/* ------------ THIS IS FOR ABOUT ME PAGE ------------ */
+
+.AboutMeContainer {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+.AboutMeContainer > img {
+    margin: auto;
+}
+
+/* use " transform: translate(x y); "
+to move the images around */
+
+
+.AboutMeBox {
+    background-color: rgb(169, 218, 165);
+    width: 60%;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px outset rgb(171, 214, 145);
+    margin: auto;
+}
+
+
+.AboutMeBox > h1 {
+    font-family: Tuber;
+    padding-left: 15px;
+}
+
+
+.InnerAboutMeBox {
+    background-color: white;
+    border-radius: 3px;
+    border: 2px outset rgb(168, 168, 168);
+    margin: 5px;
+}
+
+
+.InnerAboutMeBox > h1, p {
+    padding: 5px;
+}
+
+
+
+.InnerAboutMeBox > p {
+    font-family: Helvetica;
+}
+
+.InnerAboutMeBox > p > span {
+    color: rgb(228, 181, 127);
+    font-family: Helvetica;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+}
+
+
+
+
+
+/* ------------ END OF ABOUT ME PAGE ------------ */
