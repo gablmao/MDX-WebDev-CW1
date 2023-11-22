@@ -5,6 +5,7 @@
         <title>Reset your Password</title>
         <link rel="stylesheet" href="\CSS\style.css">
         <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
+        <script src="/Javascript/password_reset.js"></script>
     </head>
     <body class="account">  <!-- different background set -->
         <header class="try">
@@ -36,16 +37,20 @@
                     </div>
                 </h1>
                 <div class="InnerNewPasswordBox">
-                    <form action="AccountPart1.html">
+                    <form onsubmit="return checkSecurePassword(), resetPassword()" id="resetPass">
                         <label for="password"> Enter New Password: </label> <br>
-                        <input type="text" id="username" name="username" value="" required> <br><br>
+                        <input type="text" id="password" name="initialPassword" value="" required> <br><br>
                         <label for="password"> Confirm New Password: </label> <br>
                         <input type="password" id="password" name="password" value="" required> <br><br>
+                        <p id="feedback" style="margin-top: 0px;"></p>  <!-- form validation: check if password is strong -->
+                        <script src="/Javascript/handle_account_data.js"></script>
                         <input type="submit" value="Update Password">
                     </form>
+                    <!-- linking js file that retrieves the user input to process -->
                 </div>
             </div>
-
+        <!-- linking js file that retrieves the user input to process -->
+        <script src="/Javascript/handle_account_data.js"></script>
 
         <footer>
             <!-- for any non-logo links, use this: -->

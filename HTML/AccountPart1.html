@@ -5,6 +5,9 @@
         <title>Create Account or Login</title>
         <link rel="stylesheet" href="\CSS\style.css">
         <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
+        <script src="../Javascript/create_account.js"></script>
+        <script src="../Javascript/login_account.js"></script>
+        <script src="../Javascript/password_reset.js"></script>
     </head>
     <body class="account">  <!-- different background set -->
         <header class="try">
@@ -24,12 +27,12 @@
             </h1>
             <a class="buttonNav" href="../index.html"> Play </a>
             <a class="buttonNav" href="AboutMe.html"> About the Game </a>
-            <a class="buttonNav" href="AccountPart1.html"> Account </a>
+            <a class="buttonNav" onclick="checkIfLoggedIn()" href="AccountPart1.html"> Account </a>
             <a class="buttonNav" href="Leaderboard.html"> Rankings </a>
         </header>
 
         <!-- separate div for users who's yet to have an account -->
-        <div class="AccountContainer">
+        <div id="AccountContainer">
             <div class="CreateAccountBox">
                 <h1> Create Account 
                     <div class="hoverForTip">
@@ -38,14 +41,18 @@
                     </div>
                 </h1>
                 <div class="InnerAccBox">
-                    <form action="AccountPart2.html">
-                            <label for="username"> Enter Username: </label> <br>
-                            <input type="text" id="username" name="username" value="Username" required> <br><br>
-                            <label for="email"> Email Address: </label> <br>
-                            <input type="email" id="email" name="email" value="Email@Address.com" requried> <br><br>
-                            <label for="password"> Enter Password: </label> <br>
-                            <input type="password" id="password" name="password" value="" required> <br><br>
-                            <input type="submit" value="Create Account">
+                    <form id="register">
+                        <label for="username"> Enter Username: </label> <br>
+                        <input type="text" id="username" value="123"> <br><br>
+                        <label for="email"> Email Address: </label> <br>
+                        <input type="email" id="email" value="123@123.com"> <br><br>
+                        <label for="tel"> Phone Number: </label> <br>
+                        <input type="tel" id="tel" placeholder="Format: 07911 123456" pattern="[0-9]{5} [0-9]{6}" value="07911 123456"> <br><br>
+                        <label for="password"> Enter Password: </label> <br>
+                        <input type="password" id="password" value="123"> <br><br>
+                        <p id="feedback"></p>  <!-- form validation -->
+                        <button type="submit" id="SubmitRegister"> Submit </button>
+                        <!--<input type="submit" value="Create Account">-->
                     </form>
                 </div>
             </div>
@@ -56,12 +63,13 @@
                 <div class="RecentAccountBox">
                     <h1> Already got an Account? </h1>
                     <div class="InnerAccBox">
-                        <form action="AccountPart2.html">
+                        <form id="login">
                             <label for="username"> Enter Username: </label> <br>
-                            <input type="text" id="username" name="username" value="Username" required> <br><br>
+                            <input type="text" id="username"> <br><br>
                             <label for="password"> Enter Password: </label> <br>
-                            <input type="password" id="password" name="password" value="" required> <br><br>
-                            <input type="submit" value="Login">
+                            <input type="password" id="password"> <br><br>
+                            <p id="feedbackLogin"></p>
+                            <button id="SubmitLogIn"> Log In </button>
                         </form>
                     </div>
                 </div>
@@ -69,18 +77,16 @@
                 <div class="RecentAccountBox">
                     <h1> Forgot your Password? </h1>
                     <div class="InnerAccBox">
-                        <form action="AccountResetPass.html">  <!-- should confirm if email exists in database before going to this page -->
-                            <label for="username"> Enter Email Linked to your Account: </label> <br>
-                            <input type="text" id="email" name="username/email" value="Email@Address.com" required> <br><br>
-                            <input type="submit" value="Request Change">
+                        <form id="requestReset">  <!-- should confirm if email exists in database before going to this page -->
+                            <label for="email"> Enter Email Linked to your Account: </label> <br><br>
+                            <input type="email" id="email"> <br><br>
+                            <p id="feedbackResetPass"></p>
+                            <button id="SubmitRequestResetPass"> Request </button>
                         </form>
                     </div>
                 </div>
             </div>
-           
         </div>
-
-
         <footer>
             <!-- for any non-logo links, use this: -->
             <!-- <a href="#"> <img src="/Images/link_icon.png" alt="..." width="40" height="40"> </a>-->

@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- makes website "compatible" to any device -->
-        <title>Your Account</title>
+        <title>Successful Account</title>
         <link rel="stylesheet" href="\CSS\style.css">
         <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
+        <script src="/Javascript/successful_login.js"></script>
     </head>
     <body class="account">  <!-- different background set -->
         <header class="try">
@@ -28,24 +29,14 @@
             <a class="buttonNav" href="Leaderboard.html"> Rankings </a>
         </header>
 
+        <div id="AccountContainer">
+            <div id="SuccessAccBox">
+                <h1>Successfully Logged into: <span id="updateUsername"> placeholder </span></h1>
+                <br>
+                <a class="buttonNav" href="../index.html"> Return to Game </a>
 
-        <div id="AccountInfoBox">
-            <div class="OuterAccBox">
-                <h1>Player Name</h1>
-                <br>
-                <div class="InnerAccBox" style="background-color: rgb(237, 193, 148);">
-                    <h2>Rank:</h2>
-                    <h3>#???</h3>
-                    <h2>Highest Score: </h2>
-                    <h3>?????????</h3>
-                </div>
-                <br>
-                <br>
-                <div class="InnerAccBox" style="background-color: rgb(237, 193, 148);">
-                    <h2> Description: </h2>
-                    <textarea>Let the world know about you!</textarea>
-                </div>
-
+                <!-- UPDATE <a> BELOW TO CLEAR SESSION STORAGE AND GO TO "AccountPart1" -->
+                <a class="buttonNav" href="AccountPart1.html"> Log out </a>
             </div>
         </div>
         <footer>
