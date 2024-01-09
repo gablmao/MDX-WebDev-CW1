@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- makes website "compatible" to any device -->
-        <title>Create Account or Login</title>
-        <link rel="stylesheet" href="\CSS\style.css">
-        <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
-        <script src="../Javascript/create_account.js"></script>
-        <script src="../Javascript/login_account.js"></script>
-        <script src="../Javascript/password_reset.js"></script>
-    </head>
-    <body class="account">  <!-- different background set -->
-        <header class="try">
-            <h1>  <!-- alternate colours using span -->
-                <span> W </span> 
-                <span> H </span>
-                <span> A </span> 
-                <span> T </span>
-                <br>
-                <span> T </span>
-                <span> H </span>
-                <span> E </span>
-                <br>
-                R A T  <!-- it has its own colour (gray)-->
-                <span> ? </span>
-                <span> ! </span> 
-            </h1>
-            <a class="buttonNav" href="../index.html"> Play </a>
-            <a class="buttonNav" href="AboutMe.html"> About the Game </a>
-            <a class="buttonNav" onclick="checkIfLoggedIn()" href="AccountPart1.html"> Account </a>
-            <a class="buttonNav" href="Leaderboard.html"> Rankings </a>
-        </header>
 
-        <!-- separate div for users who's yet to have an account -->
-        <div id="AccountContainer">
-            <div class="CreateAccountBox">
-                <h1> Create Account 
-                    <div class="hoverForTip">
-                        <img src="\Images\info-icon.png" width="16" height="16">
-                        <span class="hoverForTipText"> Pro tip! Make your username and password memorable yet difficult to crack! </span>
-                    </div>
-                </h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- makes website "compatible" to any device -->
+    <title>Create Account or Login</title>
+    <link rel="stylesheet" href="\CSS\style.css">
+    <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">
+    <!-- this gives a small icon to the tab -->
+    <script src="/Javascript/handle_account_data.js"></script>
+
+</head>
+
+<body class="account">
+    <!-- different background set -->
+    <header class="try">
+        <h1>
+            <!-- alternate colours using span -->
+            <span> W </span>
+            <span> H </span>
+            <span> A </span>
+            <span> T </span>
+            <br>
+            <span> T </span>
+            <span> H </span>
+            <span> E </span>
+            <br>
+            R A T
+            <!-- it has its own colour (gray)-->
+            <span> ? </span>
+            <span> ! </span>
+        </h1>
+        <a class="buttonNav" href="../index.html"> Play </a>
+        <a class="buttonNav" href="AboutMe.html"> About the Game </a>
+        <a class="buttonNav" onclick="checkIfLoggedIn()" href="AccountPart1.html"> Account </a>
+        <a class="buttonNav" href="Leaderboard.html"> Rankings </a>
+    </header>
+
+    <!-- separate div for users who's yet to have an account -->
+    <div id="AccountContainer">
+        <div class="CreateAccountBox">
+            <h1> Create Account
+                <div class="hoverForTip">
+                    <img src="\Images\info-icon.png" width="16" height="16">
+                    <span class="hoverForTipText"> Pro tip! Make your username and password memorable yet difficult to
+                        crack! </span>
+                </div>
+            </h1>
+            <div class="InnerAccBox">
+                <form id="register" onclick="return validateForm()" onsubmit="submitRegister()">
+                    <label for="createUsername"> Enter Username: </label> <br>
+                    <input type="text" id="createUsername" placeholder="Username..." required> <br>
+                    <p id="feedbackUsername"></p> <!-- form validation -->
+                    <label for="createEmail"> Email Address: </label> <br>
+                    <input type="email" id="createEmail" placeholder="abc@email.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required> <br>
+                    <p id="feedbackEmail"></p> <!-- form validation -->
+                    <label for="createTel"> Phone Number: </label> <br>
+                    <input type="tel" id="createTel" placeholder="Format: 07911 123456"  required> <br>
+                    <p id="feedbackPhone"></p> <!-- form validation -->
+                    <label for="createPassword"> Enter Password: </label> <br>
+                    <input type="password" id="createPassword" placeholder="Password..." required> <br>
+                    <p id="feedbackPassword"></p> <!-- form validation -->
+                    <input type="submit" id="SubmitRegister" value="Register">
+                </form>
+            </div>
+        </div>
+
+
+        <!-- separate div if the user already has an account -->
+        <div class="RecentAccountContainer">
+            <div class="RecentAccountBox">
+                <h1> Already got an Account? </h1>
                 <div class="InnerAccBox">
-                    <form id="register">
-                        <label for="username"> Enter Username: </label> <br>
-                        <input type="text" id="username" value="123"> <br><br>
-                        <label for="email"> Email Address: </label> <br>
-                        <input type="email" id="email" value="123@123.com"> <br><br>
-                        <label for="tel"> Phone Number: </label> <br>
-                        <input type="tel" id="tel" placeholder="Format: 07911 123456" pattern="[0-9]{5} [0-9]{6}" value="07911 123456"> <br><br>
-                        <label for="password"> Enter Password: </label> <br>
-                        <input type="password" id="password" value="123"> <br><br>
-                        <p id="feedback"></p>  <!-- form validation -->
-                        <button type="submit" id="SubmitRegister"> Submit </button>
-                        <!--<input type="submit" value="Create Account">-->
+                    <form id="login" onclick="validateLoginForm()" onsubmit="submitLogIn()">
+                        <label for="emailLogin"> Enter Email: </label> <br>
+                        <input type="email" id="emailLogin" placeholder="abc@email.com" required> <br>
+                        <p id="feedbackLoginEmail"></p>
+                        <label for="passwordLogin"> Enter Password: </label> <br>
+                        <input type="password" id="passwordLogin" placeholder="Password..." required> <br>
+                        <p id="feedbackLoginPassword"></p>
+                        <input type="submit" id="SubmitLogIn" value="Log In">
                     </form>
                 </div>
             </div>
-    
-    
-            <!-- separate div if the user already has an account -->
-            <div class="RecentAccountContainer">
-                <div class="RecentAccountBox">
-                    <h1> Already got an Account? </h1>
-                    <div class="InnerAccBox">
-                        <form id="login">
-                            <label for="username"> Enter Username: </label> <br>
-                            <input type="text" id="username"> <br><br>
-                            <label for="password"> Enter Password: </label> <br>
-                            <input type="password" id="password"> <br><br>
-                            <p id="feedbackLogin"></p>
-                            <button id="SubmitLogIn"> Log In </button>
-                        </form>
-                    </div>
-                </div>
-        
-                <div class="RecentAccountBox">
-                    <h1> Forgot your Password? </h1>
-                    <div class="InnerAccBox">
-                        <form id="requestReset">  <!-- should confirm if email exists in database before going to this page -->
-                            <label for="email"> Enter Email Linked to your Account: </label> <br><br>
-                            <input type="email" id="email"> <br><br>
-                            <p id="feedbackResetPass"></p>
-                            <button id="SubmitRequestResetPass"> Request </button>
-                        </form>
-                    </div>
+
+            <div class="RecentAccountBox">
+                <h1> Forgot your Password? </h1>
+                <div class="InnerAccBox">
+                    <form id="requestReset" onclick="return validateReqPass()" onsubmit="reqResetPass()">
+                        <!-- should confirm if email exists in database before going to this page -->
+                        <label for="email"> Enter Email Linked to your Account: </label> <br><br>
+                        <input type="email"  placeholder="abc@email.com" id="email" required> <br>
+                        <p id="feedbackResetPass"></p>
+                        <input type="submit" id="SubmitRequestResetPass" value="Request">
+                    </form>
                 </div>
             </div>
         </div>
-        <footer>
-            <!-- for any non-logo links, use this: -->
-            <!-- <a href="#"> <img src="/Images/link_icon.png" alt="..." width="40" height="40"> </a>-->
+    </div>
+    <footer>
+        <!-- for any non-logo links, use this: -->
+        <!-- <a href="#"> <img src="/Images/link_icon.png" alt="..." width="40" height="40"> </a>-->
 
-            <a href="https://www.Instagram.com"> <img src="/Images/Instagram_logo.png" alt="Instagram Logo" width="40" height="40"> </a>
-            <a href="https://www.x.com"> <img src="/Images/twitter_logo.png" alt="Twitter(not X)" width="40" height="40"> </a>
-            <a href="GM887@live.mdx.ac.uk"> <img src="/Images/email_logo.png" alt="MDX Email" width="40" height="40"> </a>
-            <a href="https://www.github.com/gablmao"> <img src="/Images/GitHub-Mark.png" alt="Github" width="40" height="40"> </a>
-            <a href="https://www.youtube.com"> <img src="/Images/Youtube_logo.png" alt="Youtube" width="60" height="40"> </a>
-            <p style="color: white;"> gablmao EST. 2003 </p>
-        </footer>
-    </body>
+        <a href="https://www.Instagram.com"> <img src="/Images/Instagram_logo.png" alt="Instagram Logo" width="40"
+                height="40"> </a>
+        <a href="https://www.x.com"> <img src="/Images/twitter_logo.png" alt="Twitter(not X)" width="40" height="40">
+        </a>
+        <a href="GM887@live.mdx.ac.uk"> <img src="/Images/email_logo.png" alt="MDX Email" width="40" height="40"> </a>
+        <a href="https://www.github.com/gablmao"> <img src="/Images/GitHub-Mark.png" alt="Github" width="40"
+                height="40"> </a>
+        <a href="https://www.youtube.com"> <img src="/Images/Youtube_logo.png" alt="Youtube" width="60" height="40">
+        </a>
+        <p style="color: white;"> gablmao EST. 2003 </p>
+    </footer>
+</body>
+
 </html>

@@ -5,9 +5,9 @@
         <title>Successful Account</title>
         <link rel="stylesheet" href="\CSS\style.css">
         <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
-        <script src="/Javascript/successful_login.js"></script>
+        <script src="/Javascript/handle_account_data.js"></script>
     </head>
-    <body class="account">  <!-- different background set -->
+    <body class="account" onload="DisplaySuccessfulLogInUsername()">  <!-- different background set -->
         <header class="try">
             <h1>  <!-- alternate colours using span -->
                 <span> W </span> 
@@ -31,12 +31,12 @@
 
         <div id="AccountContainer">
             <div id="SuccessAccBox">
-                <h1>Successfully Logged into: <span id="updateUsername"> placeholder </span></h1>
+                <h1> Successfully Logged in: <span id="updateUsername"> </span></h1>
                 <br>
                 <a class="buttonNav" href="../index.html"> Return to Game </a>
 
                 <!-- UPDATE <a> BELOW TO CLEAR SESSION STORAGE AND GO TO "AccountPart1" -->
-                <a class="buttonNav" href="AccountPart1.html"> Log out </a>
+                <a class="buttonNav" onclick="logOutAccount()"> Log out </a>
             </div>
         </div>
         <footer>

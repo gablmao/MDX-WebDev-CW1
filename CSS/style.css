@@ -90,10 +90,6 @@ header > h1 {
 
 canvas {
     border: 1px solid black;
-    background-color: rgb(169, 218, 165);
-    padding: 0;
-    margin: auto;
-    display: block;
 }
 
 
@@ -122,9 +118,68 @@ footer.default {
 
 /* ------------ THIS IS FOR GAME PAGE ------------ */
 
-#GameWindow {
-    padding: 15px;
+.GameCanvas {
+    display: block;
+
+    margin: 0;
+    width: 800px;
+    height: 300px;
+    border: 3px solid black;
+
+    overflow: hidden;
+    position: relative;
 }
+
+.score {
+    position: absolute;
+    font: Tuber;
+    font-size: 3vmin;
+    right: 1vmin;
+    top: 1vmin;
+}
+
+.startScreen {
+    position: absolute;
+    font: Tuber;
+    font-size: 5vmin;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hide{
+    display: none;
+}
+
+.ground{
+    --left: 0;
+    position: absolute;
+    width: 300%;
+    bottom: 0;
+    left: calc(var(--left) * 1%);
+}
+
+.cat {
+    --bottom: 0;
+    position: absolute;
+    left: 1%;
+    height: 30%;
+    bottom: calc(var(--bottom) * 1%);
+
+}
+
+.obs {
+    position: absolute;
+    left: calc(var(--left) * 1%);
+    height: 30%;
+    bottom: 0;
+}
+
+
+
+
+
+
 
 #InfoBox {
     margin: auto;
@@ -232,7 +287,7 @@ footer.default {
 
 
 /* TO PROPERLY ALIGN ALL BOXES */
-.AccountContainer {
+#AccountContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,6 +366,8 @@ footer.default {
     border: 2px solid rgb(138, 104, 88);
     border-radius: 3px;
 }
+
+
 
 
 
@@ -395,12 +452,12 @@ IF YOU WANNA ADD A HOVER TIP THING, INLCUDE THIS IN HTML:
 
 
 
-label[for=username], label[for=email], label[for=password] {
+label[for=username], label[for=email], label[for=password], label[for=tel] {
     font-size: 20px;
 }
 
 
-input[type=text], input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password], input[type=tel] {
     padding: 10px;
     background-color: rgba(85, 85, 85, 0.315);
     border: 1px solid white;
@@ -411,12 +468,12 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 
-input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
+input[type=text]:hover, input[type=password]:hover, input[type=email]:hover, input[type=tel]:hover {
     border: 1px solid rgb(169, 218, 165);
     border-radius: 3px;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=tel]:focus {
     border: 1px solid rgb(255, 248, 185);
     border-radius: 3px;
     background-color: rgba(85, 85, 85, 0.603);
@@ -438,6 +495,11 @@ input[type=submit]:hover {
     border: 2px outset rgb(169, 196, 156);
 }
 
+::placeholder {
+    color: rgba(255, 255, 255, 0.633)
+}
+
+
 
 textarea {
     width: 99.5%;
@@ -452,54 +514,23 @@ textarea {
 
 
 /* THIS IS FOR ACCOUNT PART 2 */
-#AccountInfoBox {
-    display: block;
+#SuccessAccBox {
+    background-color: rgba(255, 223, 153, 0.692);
+    text-align: center;
     margin: auto;
-    margin-bottom: 50px;
-    justify-content: left;
-    align-items: left;
-    padding: 20px;
-    width: 40%;
+    margin-top: 10%;
+    margin-bottom: 12%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 3px solid rgba(255, 234, 189, 0.63);
+    border-radius: 10px;
     font-family: Tuber;
 }
 
-.OuterAccBox {
-    display: block;
-
-    background-color: rgb(228, 181, 127);
-    margin: auto;
-    padding: 5px;
-
-    border: 3px solid rgb(228, 198, 166);
-    border-radius: 5px;
-
-    font-family: Tuber;
+#SuccessAccBox > h1 > span {
+    color: aliceblue;
+    text-shadow: 1px 1px black;
 }
-
-.OuterAccBox > h1 {
-    padding-left: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 350%; 
-    color: white; 
-    text-shadow: 2px 2px 1px black;
-}
-
-.InnerAccBox > h2 {
-    padding-left: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 200%; 
-    color: white; 
-    text-shadow: 2px 2px 1px black;
-}
-
-.InnerAccBox > h3 {
-    padding-left: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
 /* END OF ACCOUNT PART 2*/
 
 /* ------------ END OF ACCOUNT PAGE ------------ */
@@ -555,6 +586,7 @@ to move the images around */
 
 
 .InnerAboutMeBox > p {
+    margin-top: 0px;
     font-family: Helvetica;
 }
 

@@ -1,97 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- makes website "compatible" to any device -->
-        <title> WHAT THE RAT?! - the game </title>  
-        <link rel="stylesheet" href="\CSS\style.css">
-        <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">  <!-- this gives a small icon to the tab -->
-    </head>
-    <body class="default">  <!-- different background set -->
-        <header class="try">
-            <h1>  <!-- alternate colours using span (check class "try") -->
-                <span> W </span> 
-                <span> H </span>
-                <span> A </span> 
-                <span> T </span>
-                <br>
-                <span> T </span>
-                <span> H </span>
-                <span> E </span>
-                <br>
-                R A T  <!-- it has its own colour (gray)-->
-                <span> ? </span>
-                <span> ! </span> 
-            </h1>
-            <a class="buttonNav" href="index.html"> Play </a>
-            <a class="buttonNav" href="\HTML\AboutMe.html"> About the Game </a>
-            <a class="buttonNav" href="\HTML\AccountPart1.html"> Account </a>
-            <a class="buttonNav" href="\HTML\Leaderboard.html"> Rankings </a>
-        </header>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- makes website "compatible" to any device -->
+    <title> WHAT THE RAT?! - the game </title>
+    <link rel="stylesheet" href="\CSS\style.css">
+    <link rel="icon" type="image/x-icon" href="\Images\gameLogoPlaceholder.jpg">
+    <!-- this gives a small icon to the tab -->
+    <script src="/Javascript/game.js" type="module"></script>
+</head>
+
+<body class="default">
+    <!-- different background set -->
+    <header class="try">
+        <h1>
+            <!-- alternate colours using span (check class "try") -->
+            <span> W </span>
+            <span> H </span>
+            <span> A </span>
+            <span> T </span>
+            <br>
+            <span> T </span>
+            <span> H </span>
+            <span> E </span>
+            <br>
+            R A T
+            <!-- it has its own colour (gray)-->
+            <span> ? </span>
+            <span> ! </span>
+        </h1>
+        <a class="buttonNav" href="index.html"> Play </a>
+        <a class="buttonNav" href="\HTML\AboutMe.html"> About the Game </a>
+        <a class="buttonNav" href="\HTML\AccountPart1.html"> Account </a>
+        <a class="buttonNav" href="\HTML\Leaderboard.html"> Rankings </a>
+    </header>
 
 
-        <!-- Placeholder for the game window here -->
-        <div id="GameWindow">
-            <canvas id="GameCanvas" width="800" height="600">
-            </canvas>
-            <script>
-                const canvas = document.getElementById("GameCanvas");
-                const ctx = canvas.getContext("2d");
-                
-                let shape = {
-                    x: 365, // Initial location of shape, in the x-axis
-                    y: 400, // Initial location of shape, in the y-axis
-                    width: 50,
-                    height: 50,
-                    speed: 2, // Speed of vertical movement
-                    direction: 1, // 1 for down, -1 for up
-                };
-
-                function drawShape() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = "#edc192";
-                    ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
-                }
-
-                function updateShapePosition() {
-
-                    shape.y += shape.speed * shape.direction;  // Shape moves in the y-direction 
-
-                    if (shape.y < 0 || shape.y + shape.height > canvas.height) {
-                    shape.direction *= -1;
-                    }  // Changes direction when reaching canvas borders
-                }
-
-                function animate() {
-                    drawShape();
-                    updateShapePosition();
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
-                </script>
-        </div>
-        <!-- Placeholder for the game window here -->
+    <div class="GameCanvas">
+        <div class="score" data-score> 0 </div>
+        <div class="startScreen" data-startScreen> Press Any Key to Start </div>
+        <img src="./Images/ground.png" class="ground" data-ground>
+        <img src="./Images/ground.png" class="ground" data-ground>
+        <img src="./Images/player.png" class="cat">
+    </div>
 
 
-
-        <div id="InfoBox">
-            <div class="OuterInfoBoxText">
-                <h1>Controls</h1>
-                <div class="InfoBoxText">
-                    <p>Move Character: WASD/↑ ↓ → ←  !!Any other input pls update here!!</p>
-                </div>
+    <div id="InfoBox">
+        <div class="OuterInfoBoxText">
+            <h1>Controls</h1>
+            <div class="InfoBoxText">
+                <p>Press Space/Up Arrow to Jump</p>
             </div>
         </div>
-        <footer class="default">
-            <!-- for any non-logo links, use this: -->
-            <!-- <a href="#"> <img src="/Images/link_icon.png" alt="..." width="40" height="40"> </a>-->
+    </div>
+    <footer class="default">
+        <!-- for any non-logo links, use this: -->
+        <!-- <a href="#"> <img src="/Images/link_icon.png" alt="..." width="40" height="40"> </a>-->
 
-            <a href="https://www.Instagram.com"> <img src="/Images/Instagram_logo.png" alt="Instagram Logo" width="40" height="40"> </a>
-            <a href="https://www.x.com"> <img src="/Images/twitter_logo.png" alt="Twitter(not X)" width="40" height="40"> </a>
-            <a href="GM887@live.mdx.ac.uk"> <img src="/Images/email_logo.png" alt="MDX Email" width="40" height="40"> </a>
-            <a href="https://www.github.com/gablmao"> <img src="/Images/GitHub-Mark.png" alt="Github" width="40" height="40"> </a>
-            <a href="https://www.youtube.com"> <img src="/Images/Youtube_logo.png" alt="Youtube" width="60" height="40"> </a>
-            <p> gablmao EST. 2003 </p>
-        </footer>
-    </body>
+        <a href="https://www.Instagram.com"> <img src="/Images/Instagram_logo.png" alt="Instagram Logo" width="40"
+                height="40"> </a>
+        <a href="https://www.x.com"> <img src="/Images/twitter_logo.png" alt="Twitter(not X)" width="40" height="40">
+        </a>
+        <a href="GM887@live.mdx.ac.uk"> <img src="/Images/email_logo.png" alt="MDX Email" width="40" height="40"> </a>
+        <a href="https://www.github.com/gablmao"> <img src="/Images/GitHub-Mark.png" alt="Github" width="40"
+                height="40"> </a>
+        <a href="https://www.youtube.com"> <img src="/Images/Youtube_logo.png" alt="Youtube" width="60" height="40">
+        </a>
+        <p> gablmao EST. 2003 </p>
+    </footer>
+</body>
+
 </html>
